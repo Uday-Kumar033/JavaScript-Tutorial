@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quest</title>
+    <style>
+        body {
+            background-color: aqua;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        button:hover {
+            background-color: rgba(255, 223, 0, 0.9);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Quest</h1>
+
+    <div id="quiz">
+        <div class="question">
+            <p>1. What is the capital of Bharat?</p>
+            <input type="radio" name="q1" value="a"> a) West-Bengal<br>
+            <input type="radio" name="q1" value="b"> b) Patna<br>
+            <input type="radio" name="q1" value="c"> c) Delhi<br>
+            <input type="radio" name="q1" value="d"> d) Mumbai<br>
+        </div>
+        
+        <div class="question">
+            <p>2. What is 2 + 2?</p>
+            <input type="radio" name="q2" value="a"> a) 3<br>
+            <input type="radio" name="q2" value="b"> b) 4<br>
+            <input type="radio" name="q2" value="c"> c) 5<br>
+            <input type="radio" name="q2" value="d"> d) 6<br>
+        </div>
+
+        <button onclick="checkAnswers()">Submit Answers</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "c", // Correct answer for question 1
+                q2: "b"  // Correct answer for question 2
+            };
+
+            let score = 0;
+            let totalQuestions = Object.keys(answers).length;
+            let feedback = "";
+
+            // Loop through the answers
+            for (let question in answers) {
+                const userAnswer = document.querySelector(input[name="${question}"]:checked);
+                if (userAnswer) {
+                    if (userAnswer.value === answers[question]) {
+                        score++;
+                    } else {
+                        feedback += Question ${question.slice(1)}: Try again.;
+                    }
+                } else {
+                    feedback += Question ${question.slice(1)}: No answer selected.;
+                }
+            }
+
+            // Display the result
+            const resultDiv = document.getElementById("result");
+            if (score === totalQuestions) {
+                resultDiv.innerHTML = "Congratulations! All answers are correct. 🎉";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.innerHTML = ${feedback}You got ${score} out of ${totalQuestions} correct.";
+                resultDiv.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

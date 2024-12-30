@@ -1,0 +1,22 @@
+<!-- write a program in js that change of bg color when a button is click with random color changes -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <p id="para">Hello  Aashish, How are you ?</p>
+    <button id ="btn">Submit Here</button>
+    <button id ="button2">Reset</button>
+    <!-- <script src ="Q2.js"></script> -->
+     <script>
+      const button = document.getElementById("btn");
+      button.addEventListener("click", changeBgColor);
+      function changeBgColor(){
+         document.body.style.backgroundColor = "pink";
+      }
+     </script>
+ </body>
+ </html>

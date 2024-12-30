@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">IDEA FLICKER APP</h1>
+    <button id="btn">Click</button>
+    <script>
+        const button=document.getElementById("btn");
+        const colors=['yellow','red','green','blue','grey'];
+        function changeColor(){
+            const random=Math.floor(Math.random()*colors.length);
+            document.body.style.backgroundColor=colors[random];
+            heading.style.color=colors[5-random];
+        }
+        button.addEventListener("click",changeColor);
+    </script>
+</body>
+</html>

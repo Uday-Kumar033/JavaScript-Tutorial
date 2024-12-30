@@ -1,0 +1,41 @@
+<h3>create a webpage with a button that when click ,change the front color of the page . use javascript from the same </h3>
+       
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Multi-Color Change Example</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    margin-top: 50px;
+                }
+                .color-change {
+                    color: black;
+                }
+                button {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            </style>
+        </head>
+        <body>
+            <h1 class="color-change">Click the button to change my color!</h1>
+            <button onclick="changeColor()">Change Color</button>
+        
+            <script>
+                const colors = ['red', 'green', 'blue', 'purple', 'orange', 'pink'];
+        
+                function changeColor() {
+                    const textElement = document.querySelector('.color-change');
+                    const currentColor = textElement.style.color;
+                    const nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
+                    textElement.style.color = nextColor;
+                }
+            </script>
+        </body>
+        </html>

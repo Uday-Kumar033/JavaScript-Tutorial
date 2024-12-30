@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Image Slideshow</title> 
+    <link rel="stylesheet" href="styles.css" /> 
+  </head> 
+  <style> 
+    body { 
+      font-family: Arial, sans-serif; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+      background-color: #f0f0f0; 
+    } 
+ 
+    .slideshow-container { 
+      text-align: center; 
+    } 
+ 
+    img { 
+      max-width: 60%; 
+      height: auto; 
+      border: 2px solid #ccc; 
+      border-radius: 10px; 
+    } 
+ 
+    .buttons { 
+      margin-top: 10px; 
+    } 
+ 
+    button { 
+      padding: 10px 20px; 
+      margin: 0 5px; 
+      cursor: pointer; 
+    } 
+  </style> 
+  <body> 
+    <div class="slideshow-container"> 
+      <img id="slideshow-image" src="2118050.jpg" alt="Slideshow Image" /> 
+      <div class="buttons"> 
+        <button id="prevBtn">Previous</button> 
+        <button id="nextBtn">Next</button> 
+      </div> 
+    </div> 
+ 
+    <script> 
+      const images = [ 
+        "351643.jpg", 
+        "2118050.jpg", 
+        "IMG_1540.JPG", 
+        "Picture4.jpg", 
+      ]; 
+ 
+      let currentIndex = 0; 
+ 
+      const slideshowImage = document.getElementById("slideshow-image"); 
+      const prevBtn = document.getElementById("prevBtn"); 
+      const nextBtn = document.getElementById("nextBtn"); 
+ 
+      function updateImage() { 
+        slideshowImage.src = images[currentIndex]; 
+      } 
+ 
+      prevBtn.addEventListener("click", () => { 
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1; 
+        updateImage(); 
+      }); 
+ 
+      nextBtn.addEventListener("click", () => { 
+        currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0; 
+        updateImage(); 
+      }); 
+ 
+      // Initialize the slideshow with the first image 
+      updateImage(); 
+    </script> 
+  </body> 
+</html> 

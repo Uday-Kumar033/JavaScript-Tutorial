@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <h1><u>Counter App</u></h1>
+    <button id="inBtn" style="background-color: rgb(89, 165, 42);height: 50px;width: 50px;">+</button>
+    <button id="dBtn" style="background-color: rgb(226, 43, 43);height: 50px;width: 50px;">-</button>
+    <h4 >Counter : <span id="countValue">0</span></h4>
+    <script>
+        let counter = 0;
+        const increment = document.getElementById('inBtn');
+        const decrement = document.getElementById('dBtn');
+        const value = document.getElementById('countValue');
+
+        increment.addEventListener("click", getIncrement);
+        function getIncrement(){
+            counter++;
+            value.textContent = counter;
+        }
+        decrement.addEventListener("click", getDecrement);
+        function getDecrement(){
+            counter--;
+            value.textContent = counter;
+        }        
+    </script>
+</body>
+</html>

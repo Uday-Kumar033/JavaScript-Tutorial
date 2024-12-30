@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Rock, Paper, Scissors Game</title> 
+    <link rel="stylesheet" href="styles.css" /> 
+  </head> 
+  <style> 
+    body { 
+      font-family: Arial, sans-serif; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      height: 100vh; 
+      background-color: #f0f0f0; 
+    } 
+ 
+    h1 { 
+      margin-bottom: 20px; 
+    } 
+ 
+    .game-container { 
+      margin-bottom: 20px; 
+    } 
+ 
+    button { 
+      padding: 10px 20px; 
+      margin: 0 5px; 
+      cursor: pointer; 
+      font-size: 16px; 
+    } 
+ 
+    #result { 
+      font-size: 20px; 
+      margin-top: 20px; 
+    } 
+  </style> 
+  <body> 
+    <h1>Rock, Paper, Scissors</h1> 
+    <div class="game-container"> 
+      <button id="rockBtn">Rock</button> 
+      <button id="paperBtn">Paper</button> 
+      <button id="scissorsBtn">Scissors</button> 
+    </div> 
+    <div id="result"></div> 
+    <script> 
+      // Function to get the computer's choice 
+      function getComputerChoice() { 
+        const choices = ["Rock", "Paper", "Scissors"]; 
+        const randomIndex = Math.floor(Math.random() * choices.length); 
+        return choices[randomIndex]; 
+      } 
+ 
+      // Function to determine the winner 
+      function determineWinner(userChoice, computerChoice) { 
+        if (userChoice === computerChoice) { 
+          return "It's a tie!"; 
+        } else if ( 
+          (userChoice === "Rock" && computerChoice === "Scissors") || 
+          (userChoice === "Paper" && computerChoice === "Rock") || 
+          (userChoice === "Scissors" && computerChoice === "Paper") 
+        ) { 
+          return "You win!"; 
+        } else { 
+          return "You lose!"; 
+        } 
+      } 
+ 
+      // Function to play the game 
+      function playGame(userChoice) { 
+        const computerChoice = getComputerChoice(); 
+        const result = determineWinner(userChoice, computerChoice); 
+        document.getElementById( 
+          "result" 
+        ).innerText = `You chose: ${userChoice}, Computer chose: ${computerChoice}. ${result}`; 
+      } 
+ 
+      // Event listeners for buttons 
+      document 
+        .getElementById("rockBtn") 
+        .addEventListener("click", () => playGame("Rock")); 
+      document 
+        .getElementById("paperBtn") 
+        .addEventListener("click", () => playGame("Paper")); 
+      document 
+        .getElementById("scissorsBtn") 
+        .addEventListener("click", () => playGame("Scissors")); 
+    </script> 
+  </body> 
+</html>
